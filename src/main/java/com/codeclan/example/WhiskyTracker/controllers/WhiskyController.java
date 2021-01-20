@@ -43,5 +43,12 @@ public class WhiskyController {
         return new ResponseEntity<>(whisky, HttpStatus.CREATED);
     }
 
+    @GetMapping(value = "/age")
+    public ResponseEntity<List<Whisky>> findByAge(@RequestParam(name = "age", required = true) Long age) {
+        if (age == 12) {
+            return new ResponseEntity(whiskyRepository.findByAgeEquals(Math.toIntExact(age)), HttpStatus.OK);
+        }
+        return null;
+    }
 
 }

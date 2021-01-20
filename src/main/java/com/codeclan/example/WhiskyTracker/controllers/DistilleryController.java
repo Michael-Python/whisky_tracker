@@ -23,9 +23,6 @@ public class DistilleryController {
         if (region != null) {
             return new ResponseEntity<>(distilleryRepository.findByRegionEquals(region), HttpStatus.OK);
         }
-//            else if(age != null) {
-//                return new ResponseEntity<>(distilleryRepository.findDistilleriesByWhiskysAge(age), HttpStatus.OK);
-//            }  DO WE MAYBE ATTACH IT IN HERE SOMEHOW?
 
         return new ResponseEntity<>(distilleryRepository.findAll(), HttpStatus.OK);
     }
@@ -35,16 +32,13 @@ public class DistilleryController {
         return new ResponseEntity(distilleryRepository.findById(id), HttpStatus.OK);
     }
 
-//    @GetMapping(value = "/distilleries/whiskys")
-//    public ResponseEntity<List<Distillery>> findByNameAndAge(@RequestParam(name = "name", required = false) String name) {
-//        if (name != null) {
-//            return new ResponseEntity<>(distilleryRepository.findByNameEquals(age), HttpStatus.OK);
-//            if(age != null)
-//        }
-//        return new ResponseEntity<>(distilleryRepository.findAll(), HttpStatus.OK);
-//    }
-
-
+    @GetMapping(value = "/whisky")
+    public ResponseEntity<List<Distillery>> findWhiskyByRegion(@RequestParam(name = "region", required = false) String region) {
+        if (region != null) {
+            return new ResponseEntity(distilleryRepository.findWhiskyByRegionEquals(region), HttpStatus.OK);
+        }
+        return new ResponseEntity(distilleryRepository.findAll(), HttpStatus.OK);
+    }
 
 
 }

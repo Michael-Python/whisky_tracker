@@ -10,6 +10,8 @@ public interface DistilleryRepository extends JpaRepository<Distillery, Long> {
 
     List<Distillery> findByRegionEquals(String region);
 
+    List<Distillery> findWhiskyByRegionEquals(String region);
+
 //    List<Distillery> findByNameEquals(String name);
 
 //    List<Distillery> findWhiskyByDistilleryLocationAndAge(Whisky whisky);
